@@ -1,0 +1,21 @@
+# Set default index file
+DirectoryIndex index.html index.htm index.php
+
+# Prevent directory listing
+Options -Indexes
+
+# Enable rewrite engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Redirect root to index.html if directory is accessed
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^$ index.html [L]
+</IfModule>
+
+# Custom 404 Error Page
+ErrorDocument 404 /404.html
+
+
