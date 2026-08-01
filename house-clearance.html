@@ -89,6 +89,96 @@
             white-space: nowrap;
             border: 0;
         }
+
+        /* Related Services - use primary color for service card titles to match the website's design system */
+        .service-entry-item-content h3 a {
+            color: var(--primary-color);
+        }
+
+        /* Sidebar scrolling behaviour - let the sidebar scroll naturally into view first,
+           then hold at the bottom of the viewport (instead of the top) so its full content,
+           including the address/contact card, is seen before it settles in place. The main
+           content column keeps scrolling normally underneath/alongside it. */
+        @media only screen and (min-width: 992px) {
+            .page-single-sidebar.sidebar-scroll-fix {
+                top: auto;
+                bottom: 30px;
+            }
+        }
+
+        /* Why Choose We One - desktop grid layout to reduce excess white space around the image */
+        @media only screen and (min-width: 992px) {
+            .why-choose-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: auto;
+                align-items: stretch;
+                gap: 20px 30px;
+            }
+
+            .why-choose-grid .service-entry-image {
+                grid-column: 1;
+                grid-row: 2 / span 2;
+                width: 100%;
+            }
+
+            .why-choose-grid .service-entry-image figure {
+                height: 100%;
+            }
+
+            .why-choose-grid .service-entry-image img {
+                height: 100%;
+                aspect-ratio: auto;
+                object-fit: cover;
+            }
+
+            .why-choose-grid .service-entry-content-item {
+                margin-bottom: 0;
+            }
+
+            .why-choose-grid .benefit-item-1 {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .why-choose-grid .benefit-item-2 {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .why-choose-grid .benefit-item-3 {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            .why-choose-grid .benefit-item-4 {
+                grid-column: 2;
+                grid-row: 3;
+            }
+
+            .why-choose-grid .benefit-item-5 {
+                grid-column: 1;
+                grid-row: 4;
+            }
+
+            .why-choose-grid .benefit-item-6 {
+                grid-column: 2;
+                grid-row: 4;
+            }
+
+            /* Areas We Cover - place the two coverage items side-by-side to remove excess white space */
+            .service-entry-content.areas-cover-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: start;
+                gap: 20px 30px;
+            }
+
+            .areas-cover-grid .service-entry-content-item {
+                margin-bottom: 0;
+            }
+        }
     </style>
 
     <!-- Google Tag Manager -->
@@ -359,10 +449,10 @@
             <div class="row">
                 <aside class="col-lg-4">
                     <!-- Page Single Sidebar Start -->
-                    <div class="page-single-sidebar">
+                    <div class="page-single-sidebar sidebar-scroll-fix">
                         <!-- Page Sidebar Category List Start -->
-                        <nav class="page-sidebar-catagery-list wow fadeInUp" aria-label="Service categories">
-                            <h4>services category</h4>
+                        <div class="page-sidebar-catagery-list wow fadeInUp">
+                            <h3>services category</h3>
                             <ul>
                                 <li><a href="residential-removals.html">Residential Removals</a></li>
                                 <li><a href="commercial-removals.html">Commercial Removals</a></li>
@@ -371,7 +461,7 @@
                                 <li><a href="packing-service.html">Packing Service</a></li>
                                 <li><a href="moving-solutions.html">Moving Solutions</a></li>
                             </ul>
-                        </nav>
+                        </div>
                         <!-- Page Sidebar Category List End -->
 
                         <!-- Sidebar CTA Box Start -->
@@ -422,7 +512,7 @@
                         <!-- Page Single Image Start -->
                         <div class="page-single-image">
                             <figure class="image-anime reveal">
-                                <img src="images/service-single-image.jpg" alt="Professional house clearance team providing property clearance services in East Anglia" width="800" height="600" loading="lazy" decoding="async">
+                                <img src="images/clearance_local-coverage.jpg" alt="Professional house clearance team clearing a residential property in East Anglia" width="800" height="600" loading="lazy" decoding="async">
                             </figure>
                         </div>
                         <!-- Page Single Image End -->
@@ -434,6 +524,84 @@
                             <p class="wow fadeInUp" data-wow-delay="0.2s">Operating since 2016, we're fully insured and hold a Higher Tier Waste Carrier Licence with the UK Environment Agency. Wherever possible, suitable items are recycled or donated to charity, helping us achieve a 94–96% recycling and reuse rate while reducing the amount sent to landfill.</p>
                         </section>
                         <!-- House Clearance Introduction End -->
+
+                        <!-- How Our Clearance Process Works Start -->
+                        <section class="service-solution-box">
+                            <h2 class="text-anime-style-2">How Our <span>Clearance Process Works</span></h2>
+
+                            <!-- Service Entry Step List Start -->
+                            <div class="service-solution-steps">
+                                <!-- Service Entry Step Item Start -->
+                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.2s">
+                                    <div class="service-solution-step-box">
+                                        <div class="service-solution-step-no">
+                                            <h2>01</h2>
+                                        </div>
+                                        <div class="service-solution-step-content">
+                                            <h3>Quote & Assessment</h3>
+                                            <p>Getting started is simple. Contact us by phone, WhatsApp, or request a property visit. We'll discuss your requirements and provide a free quotation based on the size of the clearance and the items involved.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="images/icon-service-solution-step-1.svg" alt="Process step icon">
+                                    </div>
+                                </div>
+                                <!-- Service Entry Step Item End -->
+
+                                <!-- Service Entry Step Item Start -->
+                                <div class="service-solution-step-item active wow fadeInUp" data-wow-delay="0.4s">
+                                    <div class="service-solution-step-box">
+                                        <div class="service-solution-step-no">
+                                            <h2>02</h2>
+                                        </div>
+                                        <div class="service-solution-step-content">
+                                            <h3>Booking Your Clearance</h3>
+                                            <p>Once you're happy with the quotation, we'll arrange a convenient date and time. If you need urgent assistance, we also offer same-day emergency clearance whenever availability allows.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="images/icon-service-solution-step-2.svg" alt="Process step icon">
+                                    </div>
+                                </div>
+                                <!-- Service Entry Step Item End -->
+
+                                <!-- Service Entry Step Item Start -->
+                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <div class="service-solution-step-box">
+                                        <div class="service-solution-step-no">
+                                            <h2>03</h2>
+                                        </div>
+                                        <div class="service-solution-step-content">
+                                            <h3>Professional Clearance</h3>
+                                            <p>Our team arrives on time and carries out the clearance efficiently and respectfully. Items are carefully sorted for recycling, reuse, charity donation where appropriate, or responsible disposal through licensed facilities.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="images/icon-service-solution-step-3.svg" alt="Process step icon">
+                                    </div>
+                                </div>
+                                <!-- Service Entry Step Item End -->
+
+                                <!-- Service Entry Step Item Start -->
+                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.8s">
+                                    <div class="service-solution-step-box">
+                                        <div class="service-solution-step-no">
+                                            <h2>04</h2>
+                                        </div>
+                                        <div class="service-solution-step-content">
+                                            <h3>Swept Clean & Ready</h3>
+                                            <p>Before we leave, we make sure the property is left swept clean and ready for its next stage, whether that's preparing for sale, welcoming new tenants, or simply giving you one less thing to worry about.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="images/icon-service-solution-step-1.svg" alt="Process step icon">
+                                    </div>
+                                </div>
+                                <!-- Service Entry Step Item End -->
+                            </div>
+                            <!-- Service Entry Step List End -->
+                        </section>
+                        <!-- How Our Clearance Process Works End -->
 
                         <!-- Situations We Help With Start -->
                         <section class="service-entry-item-box">
@@ -519,90 +687,12 @@
                         </section>
                         <!-- Situations We Help With End -->
 
-                        <!-- How Our Clearance Process Works Start -->
-                        <section class="service-solution-box">
-                            <h2 class="text-anime-style-2">How Our <span>Clearance Process Works</span></h2>
-
-                            <!-- Service Entry Step List Start -->
-                            <div class="service-solution-steps">
-                                <!-- Service Entry Step Item Start -->
-                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.2s">
-                                    <div class="service-solution-step-box">
-                                        <div class="service-solution-step-no">
-                                            <h2>01</h2>
-                                        </div>
-                                        <div class="service-solution-step-content">
-                                            <h3>Quote & Assessment</h3>
-                                            <p>Getting started is simple. Contact us by phone, WhatsApp, or request a property visit. We'll discuss your requirements and provide a free quotation based on the size of the clearance and the items involved.</p>
-                                        </div>
-                                    </div>
-                                    <div class="icon-box">
-                                        <img src="images/icon-service-solution-step-1.svg" alt="Process step icon">
-                                    </div>
-                                </div>
-                                <!-- Service Entry Step Item End -->
-
-                                <!-- Service Entry Step Item Start -->
-                                <div class="service-solution-step-item active wow fadeInUp" data-wow-delay="0.4s">
-                                    <div class="service-solution-step-box">
-                                        <div class="service-solution-step-no">
-                                            <h2>02</h2>
-                                        </div>
-                                        <div class="service-solution-step-content">
-                                            <h3>Booking Your Clearance</h3>
-                                            <p>Once you're happy with the quotation, we'll arrange a convenient date and time. If you need urgent assistance, we also offer same-day emergency clearance whenever availability allows.</p>
-                                        </div>
-                                    </div>
-                                    <div class="icon-box">
-                                        <img src="images/icon-service-solution-step-2.svg" alt="Process step icon">
-                                    </div>
-                                </div>
-                                <!-- Service Entry Step Item End -->
-
-                                <!-- Service Entry Step Item Start -->
-                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.6s">
-                                    <div class="service-solution-step-box">
-                                        <div class="service-solution-step-no">
-                                            <h2>03</h2>
-                                        </div>
-                                        <div class="service-solution-step-content">
-                                            <h3>Professional Clearance</h3>
-                                            <p>Our team arrives on time and carries out the clearance efficiently and respectfully. Items are carefully sorted for recycling, reuse, charity donation where appropriate, or responsible disposal through licensed facilities.</p>
-                                        </div>
-                                    </div>
-                                    <div class="icon-box">
-                                        <img src="images/icon-service-solution-step-3.svg" alt="Process step icon">
-                                    </div>
-                                </div>
-                                <!-- Service Entry Step Item End -->
-
-                                <!-- Service Entry Step Item Start -->
-                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.8s">
-                                    <div class="service-solution-step-box">
-                                        <div class="service-solution-step-no">
-                                            <h2>04</h2>
-                                        </div>
-                                        <div class="service-solution-step-content">
-                                            <h3>Swept Clean & Ready</h3>
-                                            <p>Before we leave, we make sure the property is left swept clean and ready for its next stage, whether that's preparing for sale, welcoming new tenants, or simply giving you one less thing to worry about.</p>
-                                        </div>
-                                    </div>
-                                    <div class="icon-box">
-                                        <img src="images/icon-service-solution-step-1.svg" alt="Process step icon">
-                                    </div>
-                                </div>
-                                <!-- Service Entry Step Item End -->
-                            </div>
-                            <!-- Service Entry Step List End -->
-                        </section>
-                        <!-- How Our Clearance Process Works End -->
-
                         <!-- Why Choose We One Start -->
                         <section class="service-secure-box">
                             <h2 class="text-anime-style-2">Why Choose <span>We One</span></h2>
 
                             <!-- Service Entry Image Content Start -->
-                            <div class="service-entry-image-content">
+                            <div class="service-entry-image-content why-choose-grid">
                                 <!-- Service Entry Image Start -->
                                 <div class="service-entry-image">
                                     <figure class="image-anime reveal">
@@ -611,51 +701,47 @@
                                 </div>
                                 <!-- Service Entry Image End -->
 
-                                <!-- Service Entry Content Start -->
-                                <div class="service-entry-content">
-                                    <!-- Service Entry Content Item Start -->
-                                    <div class="service-entry-content-item wow fadeInUp">
-                                        <h3>Higher Tier Waste Carrier Licence</h3>
-                                        <p>Your property is cleared responsibly and legally. As Higher Tier Waste Carrier Licence holders, we ensure waste is handled through authorised disposal routes, giving you confidence that everything is managed correctly.</p>
-                                    </div>
-                                    <!-- Service Entry Content Item End -->
-
-                                    <!-- Service Entry Content Item Start -->
-                                    <div class="service-entry-content-item wow fadeInUp" data-wow-delay="0.2s">
-                                        <h3>Fully Insured Service</h3>
-                                        <p>From the moment we arrive until the clearance is complete, you're protected by £1,000,000 Public Liability Insurance and £10,000 Goods in Transit Insurance, giving you added peace of mind throughout the job.</p>
-                                    </div>
-                                    <!-- Service Entry Content Item End -->
-
-                                    <!-- Service Entry Content Item Start -->
-                                    <div class="service-entry-content-item wow fadeInUp" data-wow-delay="0.4s">
-                                        <h3>94-96% Recycling & Reuse Rate</h3>
-                                        <p>Whenever possible, furniture, household items, and other reusable belongings are recycled or donated rather than sent to landfill, helping reduce waste while supporting local communities.</p>
-                                    </div>
-                                    <!-- Service Entry Content Item End -->
-
-                                    <!-- Service Entry Content Item Start -->
-                                    <div class="service-entry-content-item wow fadeInUp" data-wow-delay="0.6s">
-                                        <h3>Same-Day Emergency Clearance</h3>
-                                        <p>Some situations simply can't wait. Subject to availability, we can respond quickly to urgent clearance requests, helping when time is especially important.</p>
-                                    </div>
-                                    <!-- Service Entry Content Item End -->
-
-                                    <!-- Service Entry Content Item Start -->
-                                    <div class="service-entry-content-item wow fadeInUp" data-wow-delay="0.8s">
-                                        <h3>Swept-Clean Guarantee</h3>
-                                        <p>Our job doesn't end when the last item leaves the property. Before we finish, we leave the cleared areas swept clean, making the property ready for whatever comes next.</p>
-                                    </div>
-                                    <!-- Service Entry Content Item End -->
-
-                                    <!-- Service Entry Content Item Start -->
-                                    <div class="service-entry-content-item wow fadeInUp" data-wow-delay="1.0s">
-                                        <h3>Experienced Since 2016</h3>
-                                        <p>For nearly a decade we've been helping homeowners, landlords, families, and businesses with professional removals and property clearances across East Anglia, delivering a dependable service built on experience.</p>
-                                    </div>
-                                    <!-- Service Entry Content Item End -->
+                                <!-- Service Entry Content Item Start -->
+                                <div class="service-entry-content-item benefit-item-1 wow fadeInUp">
+                                    <h3>Higher Tier Waste Carrier Licence</h3>
+                                    <p>Your property is cleared responsibly and legally. As Higher Tier Waste Carrier Licence holders, we ensure waste is handled through authorised disposal routes, giving you confidence that everything is managed correctly.</p>
                                 </div>
-                                <!-- Service Entry Content End -->
+                                <!-- Service Entry Content Item End -->
+
+                                <!-- Service Entry Content Item Start -->
+                                <div class="service-entry-content-item benefit-item-2 wow fadeInUp" data-wow-delay="0.2s">
+                                    <h3>Fully Insured Service</h3>
+                                    <p>From the moment we arrive until the clearance is complete, you're protected by £1,000,000 Public Liability Insurance and £10,000 Goods in Transit Insurance, giving you added peace of mind throughout the job.</p>
+                                </div>
+                                <!-- Service Entry Content Item End -->
+
+                                <!-- Service Entry Content Item Start -->
+                                <div class="service-entry-content-item benefit-item-3 wow fadeInUp" data-wow-delay="0.4s">
+                                    <h3>94-96% Recycling & Reuse Rate</h3>
+                                    <p>Whenever possible, furniture, household items, and other reusable belongings are recycled or donated rather than sent to landfill, helping reduce waste while supporting local communities.</p>
+                                </div>
+                                <!-- Service Entry Content Item End -->
+
+                                <!-- Service Entry Content Item Start -->
+                                <div class="service-entry-content-item benefit-item-4 wow fadeInUp" data-wow-delay="0.6s">
+                                    <h3>Same-Day Emergency Clearance</h3>
+                                    <p>Some situations simply can't wait. Subject to availability, we can respond quickly to urgent clearance requests, helping when time is especially important.</p>
+                                </div>
+                                <!-- Service Entry Content Item End -->
+
+                                <!-- Service Entry Content Item Start -->
+                                <div class="service-entry-content-item benefit-item-5 wow fadeInUp" data-wow-delay="0.8s">
+                                    <h3>Swept-Clean Guarantee</h3>
+                                    <p>Our job doesn't end when the last item leaves the property. Before we finish, we leave the cleared areas swept clean, making the property ready for whatever comes next.</p>
+                                </div>
+                                <!-- Service Entry Content Item End -->
+
+                                <!-- Service Entry Content Item Start -->
+                                <div class="service-entry-content-item benefit-item-6 wow fadeInUp" data-wow-delay="1.0s">
+                                    <h3>Experienced Since 2016</h3>
+                                    <p>For nearly a decade we've been helping homeowners, landlords, families, and businesses with professional removals and property clearances across East Anglia, delivering a dependable service built on experience.</p>
+                                </div>
+                                <!-- Service Entry Content Item End -->
                             </div>
                             <!-- Service Entry Image Content End -->
                         </section>
@@ -667,7 +753,7 @@
                                 <h2 class="text-anime-style-2" data-cursor="-opaque">Areas We <span>Cover</span></h2>
                             </div>
                             
-                            <div class="service-entry-content">
+                            <div class="service-entry-content areas-cover-grid">
                                 <div class="service-entry-content-item wow fadeInUp">
                                     <h3>East Anglia Specialists</h3>
                                     <p>We provide professional house clearance services throughout Norfolk, Suffolk, Essex, and Cambridgeshire. Whether you're clearing a family home, rental property, garage, or probate property, our team delivers a reliable and respectful service across the region.</p>

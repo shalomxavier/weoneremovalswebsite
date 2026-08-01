@@ -2448,6 +2448,10 @@ header.main-header .header-sticky.active {
 	cursor: none;
 }
 
+.page-header-box p {
+	color: var(--white-color);
+}
+
 .page-header-box ol {
 	margin: 0;
 	padding: 0;
