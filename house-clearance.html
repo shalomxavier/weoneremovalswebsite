@@ -95,17 +95,6 @@
             color: var(--primary-color);
         }
 
-        /* Sidebar scrolling behaviour - let the sidebar scroll naturally into view first,
-           then hold at the bottom of the viewport (instead of the top) so its full content,
-           including the address/contact card, is seen before it settles in place. The main
-           content column keeps scrolling normally underneath/alongside it. */
-        @media only screen and (min-width: 992px) {
-            .page-single-sidebar.sidebar-scroll-fix {
-                top: auto;
-                bottom: 30px;
-            }
-        }
-
         /* Why Choose We One - desktop grid layout to reduce excess white space around the image */
         @media only screen and (min-width: 992px) {
             .why-choose-grid {
@@ -449,7 +438,7 @@
             <div class="row">
                 <aside class="col-lg-4">
                     <!-- Page Single Sidebar Start -->
-                    <div class="page-single-sidebar sidebar-scroll-fix">
+                    <div class="page-single-sidebar">
                         <!-- Page Sidebar Category List Start -->
                         <div class="page-sidebar-catagery-list wow fadeInUp">
                             <h3>services category</h3>
@@ -1108,6 +1097,112 @@
     <script src="js/wow.min.js"></script>
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
+
+    <!-- Page-Specific Script: Sticky Sidebar Full Reveal (bidirectional) -->
+    <script>
+        (function () {
+            "use strict";
+
+            var sidebar = document.querySelector(".page-single-sidebar");
+            var aside = sidebar ? sidebar.closest("aside") : null;
+            if (!sidebar || !aside) return;
+
+            var STICKY_TOP = 30;    // matches the "top: 30px" set on .page-single-sidebar in custom.css
+            var REVEAL_BUFFER = 24; // small amount of white space revealed below the address card
+
+            var extraScroll = 0;   // how much taller the sidebar is than the available viewport space
+            var sidebarHeight = 0; // cached sidebar height, re-measured on resize only
+            var progress = 0;      // 0..extraScroll: how much of the hidden content is currently revealed
+            var lastScrollY = window.scrollY;
+            var ticking = false;
+
+            function isDesktop() {
+                // Sidebar is only position:sticky at this breakpoint (see custom.css); below it, it's static.
+                return window.matchMedia("(min-width: 992px)").matches;
+            }
+
+            function clamp(value, min, max) {
+                return value < min ? min : (value > max ? max : value);
+            }
+
+            // Used only for one-off (re)synchronisation - e.g. on load or after a
+            // resize - never during continuous scrolling, so it can't reintroduce
+            // the directional lag we're fixing.
+            function absoluteProgress() {
+                var asideRect = aside.getBoundingClientRect();
+                return clamp(STICKY_TOP - asideRect.top, 0, extraScroll);
+            }
+
+            function measure() {
+                if (!isDesktop()) {
+                    extraScroll = 0;
+                    progress = 0;
+                    sidebar.style.top = "";
+                    return;
+                }
+
+                var availableHeight = window.innerHeight - STICKY_TOP;
+                sidebarHeight = sidebar.getBoundingClientRect().height;
+                var difference = sidebarHeight - availableHeight + REVEAL_BUFFER;
+
+                extraScroll = difference > 0 ? difference : 0;
+                progress = extraScroll > 0 ? absoluteProgress() : 0;
+                lastScrollY = window.scrollY;
+            }
+
+            function applyTop() {
+                sidebar.style.top = extraScroll > 0 ? (STICKY_TOP - progress) + "px" : "";
+            }
+
+            function updatePosition() {
+                ticking = false;
+
+                if (extraScroll <= 0) return;
+
+                var currentScrollY = window.scrollY;
+                var delta = currentScrollY - lastScrollY; // +ve scrolling down, -ve scrolling up
+                lastScrollY = currentScrollY;
+
+                var asideRect = aside.getBoundingClientRect();
+                var engaged = asideRect.top <= STICKY_TOP;
+                var withinContainer = (asideRect.bottom - sidebarHeight) > STICKY_TOP;
+
+                if (engaged && withinContainer) {
+                    // Sidebar is actively sticky: translate it immediately in
+                    // whichever direction the user is scrolling, by exactly the
+                    // scrolled distance, so up and down feel like mirrored
+                    // animations instead of the reveal only unwinding once the
+                    // user has scrolled all the way back to the top of the section.
+                    progress = clamp(progress + delta, 0, extraScroll);
+                } else if (!engaged) {
+                    // Back above the point where the sidebar starts sticking.
+                    progress = 0;
+                }
+                // Otherwise we're close to the bottom of the sidebar's container,
+                // where native sticky release takes over; leave "progress" as-is.
+
+                applyTop();
+            }
+
+            function onScroll() {
+                if (extraScroll <= 0 || ticking) return;
+                ticking = true;
+                requestAnimationFrame(updatePosition);
+            }
+
+            function onResize() {
+                measure();
+                applyTop();
+            }
+
+            measure();
+            applyTop();
+
+            window.addEventListener("scroll", onScroll, { passive: true });
+            window.addEventListener("resize", onResize);
+            window.addEventListener("load", onResize);
+        })();
+    </script>
 </body>
 
 </html>
