@@ -62,16 +62,6 @@
 
     <!-- Page-Specific Styles -->
     <style>
-        .sidebar-cta-badge {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--white-color);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 10px;
-        }
         
         .page-sidebar-catagery-list ul li a.active {
             color: var(--accent-color);
@@ -457,7 +447,7 @@
                         <div class="sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
                             <!-- Sidebar Cta Logo Start -->
                             <div class="sidebar-cta-logo">
-                                <img src="images/logo.svg" alt="We One Removals Logo" width="200" height="50">
+                                <img src="images/logo-sidebar.svg" alt="We One Removals Logo">
                             </div>
                             <!-- Sidebar Cta Logo End -->
 
@@ -470,25 +460,28 @@
                                     IP22 4EX<br>
                                     United Kingdom
                                 </address>
-                                <p class="sidebar-cta-badge">Same-day available</p>
                             </div>
                             <!-- Sidebar CTA Content End -->
 
                             <!-- Sidebar CTA Button Start -->
-                            <div class="sidebar-cta-btn">
-                                <a href="tel:+447777249530" aria-label="Call us on +44 7777 249 530">
-                                    <img src="images/icon-phone.svg" alt="Phone icon">+44&nbsp;7777&nbsp;249&nbsp;530
+                            <div class="sidebar-cta-btn sidebar-cta-call">
+                                <a href="tel:+447777249530" class="btn-default" aria-label="Call us on +44 7777 249 530">
+                                    <img src="images/icon-phone.svg" alt="" aria-hidden="true">
+                                    +44&nbsp;7777&nbsp;249&nbsp;530
                                 </a>
                             </div>
                             <!-- Sidebar CTA Button End -->
                             
                             <!-- Sidebar WhatsApp Button Start -->
-                            <div class="sidebar-cta-btn">
-                                <a href="https://wa.me/447777249530" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener">
-                                    <img src="images/icon-phone.svg" alt="Phone icon">WhatsApp Quote
+                            <div class="sidebar-cta-btn sidebar-cta-call">
+                                <a href="https://wa.me/447777249530" class="btn-default" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                                    WhatsApp Quote
                                 </a>
                             </div>
                             <!-- Sidebar WhatsApp Button End -->
+                            
+                            <p class="sidebar-cta-note">Same-day service available</p>
                         </div>
                         <!-- Sidebar CTA Box End -->
                     </div>
