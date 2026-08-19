@@ -103,6 +103,21 @@
             color: var(--accent-color);
             font-weight: 600;
         }
+
+        .page-sidebar-catagery-list ul li a.active::before,
+        .page-sidebar-catagery-list ul li a.active:hover::before {
+            background: var(--accent-color);
+            -webkit-mask-image: url('images/arrow-text.svg');
+            mask-image: url('images/arrow-text.svg');
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            -webkit-mask-position: center right;
+            mask-position: center right;
+            transform: translateY(-50%) rotate(0);
+            filter: none;
+        }
         
         .visually-hidden {
             position: absolute;
@@ -114,6 +129,18 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+        }
+
+        .service-entry:has(+ .service-solution-box) {
+            margin-bottom: 40px;
+        }
+
+        .service-solution-box {
+            margin-top: 40px;
+        }
+
+        .service-solution-box > h2 {
+            margin-bottom: 40px;
         }
 
         /* Related Services - use primary color for service card titles to match the website's design system */
