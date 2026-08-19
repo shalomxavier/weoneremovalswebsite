@@ -2,6 +2,42 @@
 <html lang="en-GB">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17742089367"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17742089367');
+    </script>
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17742089367/psHsCL_uuNMbEJeZi4xC',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+    <script>
+        function gtag_report_whatsapp_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.open(url, '_blank');
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17742089367/fLNFCIril-QcEJeZi4xC',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -465,7 +501,7 @@
 
                             <!-- Sidebar CTA Button Start -->
                             <div class="sidebar-cta-btn sidebar-cta-call">
-                                <a href="tel:+447777249530" class="btn-default" aria-label="Call us on +44 7777 249 530">
+                                <a href="tel:+447777249530" class="btn-default" aria-label="Call us on +44 7777 249 530" onclick="return gtag_report_conversion(this.href)">
                                     <img src="images/icon-phone.svg" alt="" aria-hidden="true">
                                     +44&nbsp;7777&nbsp;249&nbsp;530
                                 </a>
@@ -474,7 +510,7 @@
                             
                             <!-- Sidebar WhatsApp Button Start -->
                             <div class="sidebar-cta-btn sidebar-cta-call">
-                                <a href="https://wa.me/447777249530" class="btn-default" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener">
+                                <a href="https://wa.me/447777249530" class="btn-default" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener" onclick="return gtag_report_whatsapp_conversion(this.href)">
                                     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
                                     WhatsApp Quote
                                 </a>
@@ -1012,7 +1048,7 @@
                             </div>
                             <div class="footer-contact-content">
 
-                                <p><a href="tel:+447777249530">+44 7777 249 530</a></p>
+                                <p><a href="tel:+447777249530" onclick="return gtag_report_conversion(this.href)">+44 7777 249 530</a></p>
                             </div>
                         </div>
                     </div>
