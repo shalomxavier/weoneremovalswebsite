@@ -162,6 +162,7 @@
                 grid-column: 1;
                 grid-row: 2 / span 2;
                 width: 100%;
+                margin-bottom: 20px;
             }
 
             .why-choose-grid .service-entry-image figure {
@@ -219,6 +220,80 @@
 
             .areas-cover-grid .service-entry-content-item {
                 margin-bottom: 0;
+            }
+        }
+
+        /* Final CTA - clear separation after the FAQ accordion (matches the 60px section rhythm) */
+        .page-single-faqs + .service-entry {
+            margin-top: 60px;
+        }
+
+        .mobile-contact-bar {
+            display: none;
+        }
+
+        @media only screen and (max-width: 991px) {
+            body {
+                padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+            }
+
+            .page-single-faqs + .service-entry {
+                margin-top: 40px;
+            }
+
+            .mobile-contact-bar {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 999;
+                display: flex;
+                gap: 8px;
+                padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+                background: var(--primary-color);
+                border-top: 1px solid var(--dark-divider-color);
+                box-shadow: 0 -4px 16px rgba(6, 46, 57, 0.18);
+            }
+
+            .mobile-contact-bar__action {
+                display: inline-flex;
+                flex: 1 1 0;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                min-width: 0;
+                min-height: 48px;
+                padding: 10px 8px;
+                color: var(--white-color);
+                background: var(--accent-color);
+                border-radius: 12px;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1;
+                white-space: nowrap;
+            }
+
+            .mobile-contact-bar__action:hover,
+            .mobile-contact-bar__action:focus {
+                color: var(--white-color);
+            }
+
+            .mobile-contact-bar__action:focus-visible {
+                outline: 2px solid var(--white-color);
+                outline-offset: -4px;
+            }
+
+            .mobile-contact-bar__action img {
+                width: 20px;
+                height: 20px;
+                flex: 0 0 20px;
+                filter: grayscale(1) brightness(10);
+            }
+
+            .mobile-contact-bar__action i {
+                flex: 0 0 auto;
+                font-size: 21px;
+                line-height: 1;
             }
         }
     </style>
@@ -326,6 +401,14 @@
             },
             {
                 "@type": "Question",
+                "name": "Can valuable items reduce the cost of my house clearance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "If your property contains valuable or saleable items, we can also assess them during the quotation. Where applicable, their agreed value may be offset against your house clearance cost."
+                }
+            },
+            {
+                "@type": "Question",
                 "name": "Are you licensed to remove and dispose of waste?",
                 "acceptedAnswer": {
                     "@type": "Answer",
@@ -345,7 +428,7 @@
                 "name": "Do I need to be at the property during the clearance?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Not always. Depending on your circumstances, we can discuss the most suitable arrangements during the quotation process. Our aim is to make the clearance as straightforward and convenient as possible."
+                    "text": "Not necessarily. Whether you need to be at the property during the clearance is entirely up to you. We can discuss the arrangements that work best for you during the quotation process."
                 }
             },
             {
@@ -362,6 +445,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "This depends on the size of the property and our availability. We always aim to arrange a convenient date, and for urgent situations we offer same-day emergency clearance whenever availability allows."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you provide a Waste Transfer Certificate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We are licensed to carry and handle waste responsibly, and can provide the appropriate waste transfer documentation for your clearance where required."
                 }
             }
         ]
@@ -469,7 +560,7 @@
                     <!-- Page Header Box Start -->
                     <div class="page-header-box">
                         <h1 class="text-anime-style-2" data-cursor="-opaque">House Clearance Services</h1>
-                        <p class="wow fadeInUp" data-wow-delay="0.1s">Licensed • Insured • Environmentally Responsible</p>
+                        <p class="wow fadeInUp" data-wow-delay="0.1s">Licensed · Insured · Responsible</p>
                         <nav class="wow fadeInUp" aria-label="Breadcrumb" data-wow-delay="0.2s">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="https://weoneremovals.com">home</a></li>
@@ -517,12 +608,6 @@
                             <!-- Sidebar CTA Content Start -->
                             <div class="sidebar-cta-content">
                                 <h3>Get in touch</h3>
-                                <address>
-                                    5A Mavery House<br>
-                                    Victoria Road<br>
-                                    IP22 4EX<br>
-                                    United Kingdom
-                                </address>
                             </div>
                             <!-- Sidebar CTA Content End -->
 
@@ -566,7 +651,7 @@
                         <section class="service-entry">
                             <h2 class="text-anime-style-2">Professional House Clearance Services</h2>
                             <p class="wow fadeInUp">Whether you're clearing a property after a bereavement, preparing a home for sale, downsizing, or simply making space, We One Removals provides professional house clearance services across East Anglia. We clear everything from individual rooms and garages to complete properties, always working respectfully, efficiently, and with care for both your property and the items inside it.</p>
-                            <p class="wow fadeInUp" data-wow-delay="0.2s">Operating since 2016, we're fully insured and hold a Higher Tier Waste Carrier Licence with the UK Environment Agency. Wherever possible, suitable items are recycled or donated to charity, helping us achieve a 94–96% recycling and reuse rate while reducing the amount sent to landfill.</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">Operating since 2016, we're fully insured and hold a Higher Tier Waste Carrier Licence with the UK Environment Agency. Wherever possible, suitable items are recycled or donated to charity, helping us achieve a 94–96% recycling and reuse rate while reducing the amount sent to landfill. <strong>If your property contains valuable or saleable items, we can also assess them during the quotation, and where applicable, their agreed value may be offset against your house clearance cost.</strong></p>
                         </section>
                         <!-- House Clearance Introduction End -->
 
@@ -600,6 +685,23 @@
                                             <h2>02</h2>
                                         </div>
                                         <div class="service-solution-step-content">
+                                            <h3>Valuable Items & Cost Offset</h3>
+                                            <p>During the assessment, we can identify valuable or saleable items. Where applicable, an agreed value for suitable items may be deducted from or offset against your house clearance cost.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="images/icon-service-solution-step-3.svg" alt="Process step icon">
+                                    </div>
+                                </div>
+                                <!-- Service Entry Step Item End -->
+
+                                <!-- Service Entry Step Item Start -->
+                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <div class="service-solution-step-box">
+                                        <div class="service-solution-step-no">
+                                            <h2>03</h2>
+                                        </div>
+                                        <div class="service-solution-step-content">
                                             <h3>Booking Your Clearance</h3>
                                             <p>Once you're happy with the quotation, we'll arrange a convenient date and time. If you need urgent assistance, we also offer same-day emergency clearance whenever availability allows.</p>
                                         </div>
@@ -611,10 +713,10 @@
                                 <!-- Service Entry Step Item End -->
 
                                 <!-- Service Entry Step Item Start -->
-                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.6s">
+                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.8s">
                                     <div class="service-solution-step-box">
                                         <div class="service-solution-step-no">
-                                            <h2>03</h2>
+                                            <h2>04</h2>
                                         </div>
                                         <div class="service-solution-step-content">
                                             <h3>Professional Clearance</h3>
@@ -628,10 +730,10 @@
                                 <!-- Service Entry Step Item End -->
 
                                 <!-- Service Entry Step Item Start -->
-                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.8s">
+                                <div class="service-solution-step-item wow fadeInUp" data-wow-delay="1.0s">
                                     <div class="service-solution-step-box">
                                         <div class="service-solution-step-no">
-                                            <h2>04</h2>
+                                            <h2>05</h2>
                                         </div>
                                         <div class="service-solution-step-content">
                                             <h3>Swept Clean & Ready</h3>
@@ -674,8 +776,8 @@
                                         <img src="images/icon-service-entry-item-2.svg" alt="Service icon">
                                     </div>
                                     <div class="service-entry-item-content">
-                                        <h3>Downsizing & Care Moves</h3>
-                                        <p>Moving to a smaller property or into assisted living often means deciding what to keep and what to let go. We help make the process easier by clearing unwanted items efficiently and responsibly.</p>
+                                        <h3>Downsizing and Moving</h3>
+                                        <p>Moving to a smaller property often means deciding what to keep, move, donate, or clear. We help make the transition easier by efficiently clearing unwanted furniture and household items, leaving the property ready for its next stage.</p>
                                     </div>
                                 </div>
                                 <!-- Service Entry Item End -->
@@ -741,7 +843,7 @@
                                 <!-- Service Entry Image Start -->
                                 <div class="service-entry-image">
                                     <figure class="image-anime reveal">
-                                        <img src="images/service-entry-image.jpg" alt="Professional clearance team demonstrating licensed and insured house clearance services" width="800" height="600" loading="lazy" decoding="async">
+                                        <img src="images/clearacnes_after-service.jpg" alt="Clean and empty property after professional house clearance" width="640" height="640" loading="lazy" decoding="async">
                                     </figure>
                                 </div>
                                 <!-- Service Entry Image End -->
@@ -756,35 +858,35 @@
                                 <!-- Service Entry Content Item Start -->
                                 <div class="service-entry-content-item benefit-item-2 wow fadeInUp" data-wow-delay="0.2s">
                                     <h3>Fully Insured Service</h3>
-                                    <p>From the moment we arrive until the clearance is complete, you're protected by £1,000,000 Public Liability Insurance and £10,000 Goods in Transit Insurance, giving you added peace of mind throughout the job.</p>
+                                    <p>We are fully insured, including Public Liability Insurance and Goods in Transit Insurance. This gives you added peace of mind from the moment our team arrives until the clearance is complete.</p>
                                 </div>
                                 <!-- Service Entry Content Item End -->
 
                                 <!-- Service Entry Content Item Start -->
                                 <div class="service-entry-content-item benefit-item-3 wow fadeInUp" data-wow-delay="0.4s">
                                     <h3>94-96% Recycling & Reuse Rate</h3>
-                                    <p>Whenever possible, furniture, household items, and other reusable belongings are recycled or donated rather than sent to landfill, helping reduce waste while supporting local communities.</p>
+                                    <p>Whenever possible, furniture, household items, and other reusable belongings are recycled or donated rather than sent to landfill, helping reduce waste while supporting local communities. Where suitable, valuable or saleable items can also be assessed and may help reduce the overall clearance cost.</p>
                                 </div>
                                 <!-- Service Entry Content Item End -->
 
                                 <!-- Service Entry Content Item Start -->
                                 <div class="service-entry-content-item benefit-item-4 wow fadeInUp" data-wow-delay="0.6s">
                                     <h3>Same-Day Emergency Clearance</h3>
-                                    <p>Some situations simply can't wait. Subject to availability, we can respond quickly to urgent clearance requests, helping when time is especially important.</p>
+                                    <p>Some situations simply can't wait. We can respond quickly to urgent clearance requests. Call us to check same-day availability, especially when time is important.</p>
                                 </div>
                                 <!-- Service Entry Content Item End -->
 
                                 <!-- Service Entry Content Item Start -->
                                 <div class="service-entry-content-item benefit-item-5 wow fadeInUp" data-wow-delay="0.8s">
                                     <h3>Swept-Clean Guarantee</h3>
-                                    <p>Our job doesn't end when the last item leaves the property. Before we finish, we leave the cleared areas swept clean, making the property ready for whatever comes next.</p>
+                                    <p>Our job doesn't end when the last item leaves the property. Before we finish, we leave the cleared areas swept clean, making the property ready for whatever comes next. This means you can return to a clear, tidy space without having to arrange additional cleaning.</p>
                                 </div>
                                 <!-- Service Entry Content Item End -->
 
                                 <!-- Service Entry Content Item Start -->
-                                <div class="service-entry-content-item benefit-item-6 wow fadeInUp" data-wow-delay="1.0s">
+                                <div class="service-entry-content-item benefit-item-6 wow fadeInUp" data-wow-delay="0.8s">
                                     <h3>Experienced Since 2016</h3>
-                                    <p>For nearly a decade we've been helping homeowners, landlords, families, and businesses with professional removals and property clearances across East Anglia, delivering a dependable service built on experience.</p>
+                                    <p>For over a decade we've been helping homeowners, landlords, families, and businesses with professional removals and property clearances across East Anglia, delivering a dependable service built on experience.</p>
                                 </div>
                                 <!-- Service Entry Content Item End -->
                             </div>
@@ -840,6 +942,24 @@
                                 <!-- FAQ Item End -->
 
                                 <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.15s">
+                                    <h2 class="accordion-header" id="heading-value-offset">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse-value-offset" aria-expanded="false"
+                                            aria-controls="collapse-value-offset">
+                                            Can valuable items reduce the cost of my house clearance?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse-value-offset" class="accordion-collapse collapse" aria-labelledby="heading-value-offset"
+                                        data-bs-parent="#faqaccordion">
+                                        <div class="accordion-body">
+                                            <p>If your property contains valuable or saleable items, we can also assess them during the quotation. Where applicable, their agreed value may be offset against your house clearance cost.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
                                 <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
                                     <h2 class="accordion-header" id="heading2">
                                         <button class="accordion-button collapsed" type="button"
@@ -887,7 +1007,7 @@
                                     <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
                                         data-bs-parent="#faqaccordion">
                                         <div class="accordion-body">
-                                            <p>Not always. Depending on your circumstances, we can discuss the most suitable arrangements during the quotation process. Our aim is to make the clearance as straightforward and convenient as possible.</p>
+                                            <p>Not necessarily. Whether you need to be at the property during the clearance is entirely up to you. We can discuss the arrangements that work best for you during the quotation process.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -924,6 +1044,24 @@
                                         data-bs-parent="#faqaccordion">
                                         <div class="accordion-body">
                                             <p>This depends on the size of the property and our availability. We always aim to arrange a convenient date, and for urgent situations we offer same-day emergency clearance whenever availability allows.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="1.2s">
+                                    <h2 class="accordion-header" id="heading7">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false"
+                                            aria-controls="collapse7">
+                                            Do you provide a Waste Transfer Certificate?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7"
+                                        data-bs-parent="#faqaccordion">
+                                        <div class="accordion-body">
+                                            <p>Yes. We are licensed to carry and handle waste responsibly, and can provide the appropriate waste transfer documentation for your clearance where required.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1035,7 +1173,7 @@
 
                 <div class="col-lg-3 col-md-5">
                     <div class="footer-links">
-                        <h4>quick link</h4>
+                        <h3>quick link</h3>
                         <ul>
                             <li><a href="https://weoneremovals.com">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
@@ -1052,7 +1190,7 @@
 
                 <div class="col-lg-3 col-md-7">
                     <div class="footer-links">
-                        <h4>contact us</h4>
+                        <h3>contact us</h3>
                         <div class="footer-contact-item">
                             <div class="icon-box">
                                 <img src="images/icon-location.svg" alt="Location icon">
@@ -1101,8 +1239,7 @@
                     <div class="footer-copyright">
                         <div class="footer-copyright-text">
                             <p>Copyright © 2026 All Rights Reserved.</p>
-                            <p>Built and optimized by <a href="https://jayaraj.pro" target="_blank"
-                                    rel="noopener">Jayaraj M S - Digital Marketing Consultant</a></p>
+                            <p>Website managed and optimized by <a href="https://alphai.in" target="_blank" rel="noopener">Alphai</a></p>
                         </div>
 
                         <div class="footer-social-links">
@@ -1121,6 +1258,17 @@
         </div>
     </footer>
     <!-- Footer Main End -->
+
+    <nav class="mobile-contact-bar" aria-label="Mobile contact options">
+        <a href="tel:+447777249530" class="mobile-contact-bar__action" aria-label="Call We One Removals" onclick="return gtag_report_conversion(this.href)">
+            <img src="images/icon-phone.svg" alt="" aria-hidden="true">
+            <span>Call</span>
+        </a>
+        <a href="https://wa.me/447777249530" class="mobile-contact-bar__action" aria-label="Contact We One Removals on WhatsApp" target="_blank" rel="noopener" onclick="return gtag_report_whatsapp_conversion(this.href)">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <span>WhatsApp</span>
+        </a>
+    </nav>
 
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
