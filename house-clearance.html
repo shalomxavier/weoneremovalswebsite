@@ -1470,32 +1470,85 @@
             var mobileContactBar = document.querySelector(".mobile-contact-bar");
             var mobileContactQuery = window.matchMedia("(max-width: 991px)");
             var SCROLL_THRESHOLD = 200;
-            var revealed = false;
+            var DIRECTION_THRESHOLD = 40;
+            var lastScrollY = window.scrollY;
+            var scrollDirection = null;
+            var directionDistance = 0;
             var ticking = false;
 
             if (!mobileContactBar) return;
 
-            function revealContactBar() {
+            function showContactBar() {
+                mobileContactBar.classList.add("is-visible");
+            }
+
+            function hideContactBar() {
+                mobileContactBar.classList.remove("is-visible");
+            }
+
+            function updateContactBar() {
                 ticking = false;
 
-                if (revealed || !mobileContactQuery.matches || window.scrollY < SCROLL_THRESHOLD) return;
+                if (!mobileContactQuery.matches) return;
 
-                revealed = true;
-                mobileContactBar.classList.add("is-visible");
-                window.removeEventListener("scroll", onScroll);
+                var currentScrollY = window.scrollY;
+                var delta = currentScrollY - lastScrollY;
+
+                if (currentScrollY < SCROLL_THRESHOLD) {
+                    hideContactBar();
+                    scrollDirection = null;
+                    directionDistance = 0;
+                    lastScrollY = currentScrollY;
+                    return;
+                }
+
+                if (lastScrollY < SCROLL_THRESHOLD && delta > 0) {
+                    showContactBar();
+                    scrollDirection = "down";
+                    directionDistance = 0;
+                    lastScrollY = currentScrollY;
+                    return;
+                }
+
+                if (delta === 0) return;
+
+                var newDirection = delta > 0 ? "down" : "up";
+
+                if (newDirection !== scrollDirection) {
+                    scrollDirection = newDirection;
+                    directionDistance = Math.abs(delta);
+                } else {
+                    directionDistance += Math.abs(delta);
+                }
+
+                if (directionDistance >= DIRECTION_THRESHOLD) {
+                    if (scrollDirection === "down") {
+                        showContactBar();
+                    } else {
+                        hideContactBar();
+                    }
+
+                    directionDistance = 0;
+                }
+
+                lastScrollY = currentScrollY;
             }
 
             function onScroll() {
-                if (revealed || ticking) return;
+                if (ticking) return;
 
                 ticking = true;
-                requestAnimationFrame(revealContactBar);
+                requestAnimationFrame(updateContactBar);
             }
 
             function updateContactBarListener() {
                 window.removeEventListener("scroll", onScroll);
+                hideContactBar();
+                lastScrollY = window.scrollY;
+                scrollDirection = null;
+                directionDistance = 0;
 
-                if (!revealed && mobileContactQuery.matches) {
+                if (mobileContactQuery.matches) {
                     window.addEventListener("scroll", onScroll, { passive: true });
                 }
             }
