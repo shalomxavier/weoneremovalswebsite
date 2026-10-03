@@ -228,7 +228,8 @@
             margin-top: 60px;
         }
 
-        .mobile-contact-bar {
+        .mobile-contact-bar,
+        .mobile-service-area-slot {
             display: none;
         }
 
@@ -237,8 +238,158 @@
                 padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
             }
 
+            .page-header {
+                padding: 153px 0 43px;
+            }
+
+            .page-header-box h1 {
+                margin-bottom: 8px;
+            }
+
+            .page-header-box p {
+                margin-bottom: 14px;
+            }
+
             .page-single-faqs + .service-entry {
                 margin-top: 40px;
+            }
+
+            .mobile-service-area-slot {
+                display: block;
+                color: var(--primary-color);
+                font-weight: 600;
+                line-height: 1.5em;
+                text-align: center;
+                margin: -20px 0 16px;
+            }
+
+            .service-single-contemt > .page-single-image {
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
+            }
+
+            .service-single-contemt > .page-single-image figure,
+            .service-single-contemt > .page-single-image img {
+                border-radius: 0;
+            }
+
+            .service-single-contemt > .page-single-image img {
+                display: block;
+                height: 240px;
+                aspect-ratio: auto;
+                object-fit: cover;
+                object-position: center 48%;
+            }
+
+            .page-single-image + .service-entry h2 {
+                margin-bottom: 10px;
+            }
+
+            .page-single-image + .service-entry p {
+                font-size: 15px;
+                line-height: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            .why-choose-grid {
+                row-gap: 4px;
+            }
+
+            .why-choose-grid .service-entry-content-item {
+                margin-bottom: 4px;
+            }
+
+            .why-choose-grid .benefit-item-1 {
+                margin-top: 20px;
+            }
+
+            .why-choose-grid .service-entry-content-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .page-sidebar-catagery-list h3 {
+                padding: 11px 20px;
+            }
+
+            .page-sidebar-catagery-list ul {
+                padding: 4px 20px;
+            }
+
+            .page-sidebar-catagery-list ul li,
+            .page-sidebar-catagery-list ul li:last-child {
+                margin: 0;
+                padding: 0;
+            }
+
+            .page-sidebar-catagery-list ul li a {
+                display: flex;
+                min-height: 37px;
+                align-items: center;
+                padding-right: 30px;
+            }
+
+            .page-sidebar-catagery-list ul li a::before,
+            .page-sidebar-catagery-list ul li a:hover::before {
+                transform: translateY(-50%) rotate(0);
+            }
+
+            .page-sidebar-catagery-list ul li a.active::before,
+            .page-sidebar-catagery-list ul li a.active:hover::before {
+                transform: translateY(-50%) rotate(-90deg);
+            }
+
+            .sidebar-cta-box {
+                padding: 14px;
+            }
+
+            .sidebar-cta-logo {
+                margin-bottom: 10px;
+            }
+
+            .sidebar-cta-logo img {
+                max-width: 120px;
+            }
+
+            .sidebar-cta-content {
+                margin-bottom: 10px;
+            }
+
+            .sidebar-cta-content h3 {
+                margin-bottom: 0;
+            }
+
+            .sidebar-cta-call .btn-default {
+                padding: 12px 54px 12px 20px;
+            }
+
+            .sidebar-cta-note {
+                margin-top: 8px;
+            }
+
+            .page-single-faqs .accordion-button {
+                min-height: 48px;
+                align-items: center;
+            }
+
+            .navbar-toggle .slicknav_btn {
+                width: 48px;
+                height: 48px;
+                background: transparent;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .navbar-toggle .slicknav_icon {
+                width: 26px;
+                height: 19px;
+                margin: 0;
+                filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+            }
+
+            .navbar-toggle .slicknav_icon .slicknav_icon-bar {
+                width: 26px;
             }
 
             .mobile-contact-bar {
@@ -250,9 +401,21 @@
                 display: flex;
                 gap: 8px;
                 padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-                background: var(--primary-color);
-                border-top: 1px solid var(--dark-divider-color);
-                box-shadow: 0 -4px 16px rgba(6, 46, 57, 0.18);
+                background: transparent;
+                border: 0;
+                box-shadow: none;
+                pointer-events: none;
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+            }
+
+            .mobile-contact-bar.is-visible {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                transition-delay: 0s;
             }
 
             .mobile-contact-bar__action {
@@ -267,6 +430,8 @@
                 color: var(--white-color);
                 background: var(--accent-color);
                 border-radius: 12px;
+                box-shadow: 0 4px 14px rgba(6, 46, 57, 0.28);
+                pointer-events: auto;
                 font-size: 16px;
                 font-weight: 600;
                 line-height: 1;
@@ -579,9 +744,11 @@
     <!-- Page Service Single Start -->
     <main class="page-service-single" id="main-content">
         <div class="container">
+            <p class="mobile-service-area-slot" id="mobile-service-area-slot"></p>
             <div class="row">
                 <aside class="col-lg-4">
                     <!-- Page Single Sidebar Start -->
+                    <span id="page-single-sidebar-origin" hidden></span>
                     <div class="page-single-sidebar">
                         <!-- Page Sidebar Category List Start -->
                         <div class="page-sidebar-catagery-list wow fadeInUp">
@@ -685,8 +852,8 @@
                                             <h2>02</h2>
                                         </div>
                                         <div class="service-solution-step-content">
-                                            <h3>Valuable Items & Cost Offset</h3>
-                                            <p>During the assessment, we can identify valuable or saleable items. Where applicable, an agreed value for suitable items may be deducted from or offset against your house clearance cost.</p>
+                                            <h3>Property Assessment</h3>
+                                            <p>We assess the property and your clearance requirements, then provide a clear quotation based on the work involved.</p>
                                         </div>
                                     </div>
                                     <div class="icon-box">
@@ -865,7 +1032,7 @@
                                 <!-- Service Entry Content Item Start -->
                                 <div class="service-entry-content-item benefit-item-3 wow fadeInUp" data-wow-delay="0.4s">
                                     <h3>94-96% Recycling & Reuse Rate</h3>
-                                    <p>Whenever possible, furniture, household items, and other reusable belongings are recycled or donated rather than sent to landfill, helping reduce waste while supporting local communities. Where suitable, valuable or saleable items can also be assessed and may help reduce the overall clearance cost.</p>
+                                    <p>Whenever possible, furniture, household items, and other reusable belongings are recycled or donated rather than sent to landfill, helping reduce waste while supporting local communities.</p>
                                 </div>
                                 <!-- Service Entry Content Item End -->
 
@@ -903,7 +1070,7 @@
                             <div class="service-entry-content areas-cover-grid">
                                 <div class="service-entry-content-item wow fadeInUp">
                                     <h3>East Anglia Specialists</h3>
-                                    <p>We provide professional house clearance services throughout Norfolk, Suffolk, Essex, and Cambridgeshire. Whether you're clearing a family home, rental property, garage, or probate property, our team delivers a reliable and respectful service across the region.</p>
+                                    <p><span id="service-area-copy-origin"></span><span id="service-area-copy">We provide professional house clearance services throughout Norfolk, Suffolk, Essex, and Cambridgeshire.</span> Whether you're clearing a family home, rental property, garage, or probate property, our team delivers a reliable and respectful service across the region.</p>
                                 </div>
                                 
                                 <div class="service-entry-content-item wow fadeInUp" data-wow-delay="0.2s">
@@ -1084,6 +1251,8 @@
                         </section>
                         <!-- Final CTA End -->
 
+                        <div id="mobile-sidebar-slot"></div>
+
                         <!-- Related Services Start -->
                         <section class="service-entry-item-box">
                             <div class="section-title">
@@ -1193,14 +1362,6 @@
                         <h3>contact us</h3>
                         <div class="footer-contact-item">
                             <div class="icon-box">
-                                <img src="images/icon-location.svg" alt="Location icon">
-                            </div>
-                            <div class="footer-contact-content">
-                                <p>5A Mavery House, Victoria Road, IP224EX, United Kingdom</p>
-                            </div>
-                        </div>
-                        <div class="footer-contact-item">
-                            <div class="icon-box">
                                 <img src="images/icon-mail.svg" alt="Email icon">
                             </div>
                             <div class="footer-contact-content">
@@ -1302,13 +1463,134 @@
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
 
+    <script>
+        (function () {
+            "use strict";
+
+            var mobileContactBar = document.querySelector(".mobile-contact-bar");
+            var mobileContactQuery = window.matchMedia("(max-width: 991px)");
+            var SCROLL_THRESHOLD = 200;
+            var revealed = false;
+            var ticking = false;
+
+            if (!mobileContactBar) return;
+
+            function revealContactBar() {
+                ticking = false;
+
+                if (revealed || !mobileContactQuery.matches || window.scrollY < SCROLL_THRESHOLD) return;
+
+                revealed = true;
+                mobileContactBar.classList.add("is-visible");
+                window.removeEventListener("scroll", onScroll);
+            }
+
+            function onScroll() {
+                if (revealed || ticking) return;
+
+                ticking = true;
+                requestAnimationFrame(revealContactBar);
+            }
+
+            function updateContactBarListener() {
+                window.removeEventListener("scroll", onScroll);
+
+                if (!revealed && mobileContactQuery.matches) {
+                    window.addEventListener("scroll", onScroll, { passive: true });
+                }
+            }
+
+            updateContactBarListener();
+
+            if (mobileContactQuery.addEventListener) {
+                mobileContactQuery.addEventListener("change", updateContactBarListener);
+            } else {
+                mobileContactQuery.addListener(updateContactBarListener);
+            }
+        })();
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var serviceAreaCopy = document.getElementById("service-area-copy");
+            var serviceAreaOrigin = document.getElementById("service-area-copy-origin");
+            var mobileServiceAreaSlot = document.getElementById("mobile-service-area-slot");
+            var mobileServiceAreaQuery = window.matchMedia("(max-width: 991px)");
+
+            if (!serviceAreaCopy || !serviceAreaOrigin || !mobileServiceAreaSlot) return;
+
+            function placeServiceAreaCopy() {
+                if (mobileServiceAreaQuery.matches) {
+                    mobileServiceAreaSlot.appendChild(serviceAreaCopy);
+                } else {
+                    serviceAreaOrigin.parentNode.insertBefore(serviceAreaCopy, serviceAreaOrigin.nextSibling);
+                }
+            }
+
+            placeServiceAreaCopy();
+
+            if (mobileServiceAreaQuery.addEventListener) {
+                mobileServiceAreaQuery.addEventListener("change", placeServiceAreaCopy);
+            } else {
+                mobileServiceAreaQuery.addListener(placeServiceAreaCopy);
+            }
+        })();
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var sidebar = document.querySelector(".page-single-sidebar");
+            var sidebarOrigin = document.getElementById("page-single-sidebar-origin");
+            var mobileSidebarSlot = document.getElementById("mobile-sidebar-slot");
+            var mobileSidebarQuery = window.matchMedia("(max-width: 991px)");
+            var serviceList = sidebar ? sidebar.querySelector(".page-sidebar-catagery-list ul") : null;
+            var activeServiceLink = serviceList ? serviceList.querySelector("a.active") : null;
+            var activeServiceItem = activeServiceLink ? activeServiceLink.closest("li") : null;
+            var activeServiceNextItem = activeServiceItem ? activeServiceItem.nextElementSibling : null;
+
+            if (!sidebar || !sidebarOrigin || !mobileSidebarSlot) return;
+
+            function updateMobileSidebar() {
+                if (mobileSidebarQuery.matches) {
+                    mobileSidebarSlot.appendChild(sidebar);
+                    if (activeServiceItem) serviceList.appendChild(activeServiceItem);
+                } else {
+                    sidebarOrigin.parentNode.insertBefore(sidebar, sidebarOrigin.nextSibling);
+                    if (activeServiceItem) serviceList.insertBefore(activeServiceItem, activeServiceNextItem);
+                }
+            }
+
+            updateMobileSidebar();
+
+            if (mobileSidebarQuery.addEventListener) {
+                mobileSidebarQuery.addEventListener("change", updateMobileSidebar);
+            } else {
+                mobileSidebarQuery.addListener(updateMobileSidebar);
+            }
+
+            if (activeServiceLink) {
+                activeServiceLink.addEventListener("click", function (event) {
+                    if (!mobileSidebarQuery.matches) return;
+
+                    event.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            }
+        })();
+    </script>
+
     <!-- Page-Specific Script: Sticky Sidebar Full Reveal (bidirectional) -->
     <script>
         (function () {
             "use strict";
 
             var sidebar = document.querySelector(".page-single-sidebar");
-            var aside = sidebar ? sidebar.closest("aside") : null;
+            var sidebarOrigin = document.getElementById("page-single-sidebar-origin");
+            var aside = sidebarOrigin ? sidebarOrigin.closest("aside") : null;
             if (!sidebar || !aside) return;
 
             var STICKY_TOP = 30;    // matches the "top: 30px" set on .page-single-sidebar in custom.css
