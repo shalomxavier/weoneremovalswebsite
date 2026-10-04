@@ -12,11 +12,11 @@
 | images/author-1.jpg | "Johan D., Relocation Specialist", EMPTY | index.html, services.html |
 | images/author-2.jpg | "Antoine B., Logistics coordinator", EMPTY | about.html, index.html, services.html |
 | images/author-3.jpg | "Corolina S., Move consultant", EMPTY | about.html, index.html |
-| images/clearacnes_after-service.jpg | "Clean and Empty Property After Clearance" | clearances-landing.html |
-| images/clearacnes_licensed-waste-disposal.jpg | "Waste Carrier License and Clearance Equipment" | clearances-landing.html |
+| images/clearances_after-service.jpg | "Clean and Empty Property After Clearance" | clearances-landing.html |
+| images/clearances_licensed-waste-disposal.jpg | "Waste Carrier License and Clearance Equipment" | clearances-landing.html |
 | images/clearance_hero_main.jpg | "Professional Property Clearance Service - Clean and Empty Space" | clearances-landing.html |
 | images/clearance_local-coverage.jpg | "Clearance Services Coverage East Anglia and Essex" | clearances-landing.html |
-| images/clearance_respectful-and-discreat-service.jpg | "Respectful and Discreet Property Clearance Service" | clearances-landing.html |
+| images/clearance_respectful-and-discreet-service.jpg | "Respectful and Discreet Property Clearance Service" | clearances-landing.html |
 | images/client-testimonials-drive-us.jpg | EMPTY | about.html |
 | images/contact-us-circle.svg | EMPTY | index.html |
 | images/contact-us-circle-dark.svg | EMPTY | about.html |

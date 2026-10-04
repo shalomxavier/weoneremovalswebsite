@@ -18,4 +18,7 @@ Options -Indexes
 # Custom 404 Error Page
 ErrorDocument 404 /404.html
 
+# Permanent 301 redirect for retired clearance-services.html
+Redirect 301 /clearance-services.html /house-clearance.html
+
 

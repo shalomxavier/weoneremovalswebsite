@@ -40,10 +40,9 @@
     </script>
     <!-- Meta -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Professional house clearance services in East Anglia. Licensed, insured, and environmentally responsible. Bereavement, probate, garage, and full property clearance across Norfolk, Suffolk, Cambridgeshire, and Essex. Get a free quote today.">
+        content="Expert house clearance across Norfolk, Suffolk, Essex & Cambridgeshire. Licensed, insured, eco-friendly. Bereavement, probate & full clearances. Free quote.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="author" content="Jayaraj | Digital Marketing Consultant - https://jayaraj.pro">
     <!-- Page Title -->
@@ -475,6 +474,29 @@
                 margin-bottom: 8px;
             }
         }
+
+        /* Process step numbers are decorative, not headings */
+        .service-solution-step-no .step-number {
+            display: block;
+            font-size: 1.5em;
+            font-weight: 700;
+            line-height: 1.1em;
+            color: var(--accent-color);
+            margin: 0;
+            margin-bottom: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .service-solution-step-item.active .service-solution-step-no .step-number,
+        .service-solution-step-item:hover .service-solution-step-no .step-number {
+            color: var(--white-color);
+        }
+
+        @media only screen and (max-width: 767px) {
+            .service-solution-step-no .step-number {
+                margin-bottom: 0;
+            }
+        }
     </style>
 
     <!-- Google Tag Manager -->
@@ -524,8 +546,7 @@
         "name": "House Clearance Services",
         "description": "Professional house clearance services including bereavement clearance, probate clearance, garage clearance, and full property clearance. Licensed, insured, and environmentally responsible with 94-96% recycling and reuse rate.",
         "provider": {
-            "@type": "LocalBusiness",
-            "name": "We One Removals"
+            "@id": "https://weoneremovals.com/#organization"
         },
         "areaServed": ["Norfolk", "Suffolk", "Essex", "Cambridgeshire", "East Anglia"],
         "hasOfferCatalog": {
@@ -823,7 +844,7 @@
                         <!-- Page Single Image Start -->
                         <div class="page-single-image">
                             <figure class="image-anime reveal">
-                                <img src="images/clearance_local-coverage.jpg" alt="Professional house clearance team clearing a residential property in East Anglia" width="800" height="600" loading="lazy" decoding="async">
+                                <img src="images/clearance_local-coverage.jpg" alt="Professional house clearance team clearing a residential property in East Anglia" width="800" height="600" fetchpriority="high" decoding="async">
                             </figure>
                         </div>
                         <!-- Page Single Image End -->
@@ -846,7 +867,7 @@
                                 <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.2s">
                                     <div class="service-solution-step-box">
                                         <div class="service-solution-step-no">
-                                            <h2>01</h2>
+                                            <span class="step-number">01</span>
                                         </div>
                                         <div class="service-solution-step-content">
                                             <h3>Quote & Assessment</h3>
@@ -863,7 +884,7 @@
                                 <div class="service-solution-step-item active wow fadeInUp" data-wow-delay="0.4s">
                                     <div class="service-solution-step-box">
                                         <div class="service-solution-step-no">
-                                            <h2>02</h2>
+                                            <span class="step-number">02</span>
                                         </div>
                                         <div class="service-solution-step-content">
                                             <h3>Property Assessment</h3>
@@ -880,7 +901,7 @@
                                 <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.6s">
                                     <div class="service-solution-step-box">
                                         <div class="service-solution-step-no">
-                                            <h2>03</h2>
+                                            <span class="step-number">03</span>
                                         </div>
                                         <div class="service-solution-step-content">
                                             <h3>Booking Your Clearance</h3>
@@ -897,7 +918,7 @@
                                 <div class="service-solution-step-item wow fadeInUp" data-wow-delay="0.8s">
                                     <div class="service-solution-step-box">
                                         <div class="service-solution-step-no">
-                                            <h2>04</h2>
+                                            <span class="step-number">04</span>
                                         </div>
                                         <div class="service-solution-step-content">
                                             <h3>Professional Clearance</h3>
@@ -914,7 +935,7 @@
                                 <div class="service-solution-step-item wow fadeInUp" data-wow-delay="1.0s">
                                     <div class="service-solution-step-box">
                                         <div class="service-solution-step-no">
-                                            <h2>05</h2>
+                                            <span class="step-number">05</span>
                                         </div>
                                         <div class="service-solution-step-content">
                                             <h3>Swept Clean & Ready</h3>
@@ -1024,7 +1045,7 @@
                                 <!-- Service Entry Image Start -->
                                 <div class="service-entry-image">
                                     <figure class="image-anime reveal">
-                                        <img src="images/clearacnes_after-service.jpg" alt="Clean and empty property after professional house clearance" width="640" height="640" loading="lazy" decoding="async">
+                                        <img src="images/clearances_after-service.jpg" alt="Clean and empty property after professional house clearance" width="640" height="640" loading="lazy" decoding="async">
                                     </figure>
                                 </div>
                                 <!-- Service Entry Image End -->
