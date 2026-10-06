@@ -173,7 +173,7 @@
 				autoAlpha: 0,
 				stagger: staggerAmount,
 				ease: easeType,
-				scrollTrigger: { trigger: element, start: "top 85%" },
+				scrollTrigger: { trigger: element, start: window.innerWidth <= 991 ? "top 120%" : "top 85%" },
 			});
 		});
 	}
